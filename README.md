@@ -1,4 +1,4 @@
-# Kubernetes na SaveInCloud do zero com Terraform
+# Kubernetes no OpenStack do zero com Terraform
 
 Parte de um projeto **vazio** no painel e entrega um cluster Kubernetes pronto, sem nenhum
 passo manual além da credencial. Usa o Kubernetes gerenciado do Nuvion (OpenStack Magnum),

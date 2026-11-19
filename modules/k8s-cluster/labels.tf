@@ -1,4 +1,4 @@
-# Labels que o painel da SaveInCloud usa ao criar um cluster Kubernetes.
+# Labels que o painel do OpenStack usa ao criar um cluster Kubernetes.
 # Copiadas do cluster k8s-auto (openstack coe cluster show k8s-auto -c labels).
 locals {
   panel_labels = {

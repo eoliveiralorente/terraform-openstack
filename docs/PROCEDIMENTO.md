@@ -1,6 +1,6 @@
-# Procedimento: Cluster Kubernetes na SaveInCloud com Terraform
+# Procedimento: Cluster Kubernetes no OpenStack com Terraform
 
-Este procedimento cria, a partir de um projeto vazio no painel da SaveInCloud, uma rede privada, um
+Este procedimento cria, a partir de um projeto vazio no painel do OpenStack, uma rede privada, um
 cluster Kubernetes gerenciado e as ferramentas **Traefik**, **Argo CD**, **Prometheus** e **Grafana**,
 usando Terraform a partir do seu notebook. O único passo manual é criar a credencial de acesso no
 painel.
@@ -73,7 +73,7 @@ terraform-openstack/
 
 ## Pré-requisitos
 
-Você precisa de acesso ao painel da SaveInCloud (`cmp.console.saveincloud.io`) e de um projeto com
+Você precisa de acesso ao painel do OpenStack (`cmp.console.saveincloud.io`) e de um projeto com
 cota livre. No notebook, use um terminal Linux:
 
 | Sistema | Terminal a usar |
@@ -242,8 +242,8 @@ Conta da cota: `(mestres × RAM do flavor dos mestres) + (workers no máximo × 
 Exemplo da configuração de produção: 3 mestres `PRI-2-8` mais até 4 workers `PRI-4-8` dão 56 GB de
 RAM e 22 vCPU.
 
-Se a cota não comportar, reduza o tamanho no tfvars ou peça aumento de cota ao suporte da
-SaveInCloud.
+Se a cota não comportar, reduza o tamanho no tfvars ou peça aumento de cota ao suporte do
+OpenStack.
 
 ## Passo 4: Obter o projeto e preencher o terraform.tfvars
 
