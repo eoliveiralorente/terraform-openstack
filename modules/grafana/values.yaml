@@ -1,0 +1,24 @@
+# Values do chart Helm do Grafana
+# (https://github.com/grafana-community/helm-charts/tree/main/charts/grafana).
+# Edite aqui como num `helm upgrade -f values.yaml`.
+
+# Carrega automaticamente os dashboards e a fonte de dados (Prometheus)
+# publicados pelo módulo prometheus como ConfigMaps no mesmo namespace.
+#
+# DISABLE_X509_STRICT_VERIFICATION: o sidecar roda em Python 3.13+, que recusa
+# certificados sem a extensão "Authority Key Identifier". O certificado da API
+# dos clusters Magnum não tem essa extensão. A opção mantém a validação TLS
+# contra a CA do cluster e desliga só a regra estrita.
+sidecar:
+  dashboards:
+    enabled: true
+    label: grafana_dashboard
+    labelValue: "1"
+    env:
+      DISABLE_X509_STRICT_VERIFICATION: "true"
+  datasources:
+    enabled: true
+    label: grafana_datasource
+    labelValue: "1"
+    env:
+      DISABLE_X509_STRICT_VERIFICATION: "true"

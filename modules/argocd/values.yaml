@@ -1,0 +1,6 @@
+# Values do chart Helm do Argo CD (https://github.com/argoproj/argo-helm/tree/main/charts/argo-cd).
+# Edite aqui como num `helm upgrade -f values.yaml`.
+# Sem configurações extras: o Argo CD é acessado por kubectl port-forward.
+# A rota por domínio é acrescentada automaticamente (values-ingress.yaml.tftpl)
+# quando a variável host é preenchida.
+{}

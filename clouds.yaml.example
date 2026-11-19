@@ -1,0 +1,22 @@
+# Salve em ~/.config/openstack/clouds.yaml (chmod 600). Nunca no Git.
+# A credencial de API é POR PROJETO: crie uma em cada projeto do painel.
+clouds:
+  saveincloud:            # projeto 862-Default -> environments/dev
+    auth_type: v3applicationcredential
+    auth:
+      auth_url: https://cmp.console.saveincloud.io/openstack/2
+      application_credential_id: "ID-DO-862-DEFAULT"
+      application_credential_secret: "SECRET-DO-862-DEFAULT"
+    region_name: RegionOne
+    interface: public
+    identity_api_version: 3
+
+  saveincloud-prod:       # projeto 862-Producao -> environments/prod
+    auth_type: v3applicationcredential
+    auth:
+      auth_url: https://cmp.console.saveincloud.io/openstack/2
+      application_credential_id: "ID-DO-862-PRODUCAO"
+      application_credential_secret: "SECRET-DO-862-PRODUCAO"
+    region_name: RegionOne
+    interface: public
+    identity_api_version: 3

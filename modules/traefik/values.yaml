@@ -1,0 +1,18 @@
+# Values do chart Helm do Traefik (https://github.com/traefik/traefik-helm-chart).
+# Edite aqui como num `helm upgrade -f values.yaml`.
+# O Service já é LoadBalancer por padrão no chart: o Nuvion entrega um IP público.
+
+# Dashboard do Traefik não fica exposto
+ingressRoute:
+  dashboard:
+    enabled: false
+
+# HTTP (80) redireciona para HTTPS (443)
+ports:
+  web:
+    http:
+      redirections:
+        entryPoint:
+          to: websecure
+          scheme: https
+          permanent: true

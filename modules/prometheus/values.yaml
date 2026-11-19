@@ -1,0 +1,32 @@
+# Values do chart kube-prometheus-stack
+# (https://github.com/prometheus-community/helm-charts/tree/main/charts/kube-prometheus-stack).
+# Instala Prometheus Operator, Prometheus, Alertmanager, node-exporter e kube-state-metrics.
+# Edite aqui como num `helm upgrade -f values.yaml`.
+
+# O Grafana é instalado pelo módulo grafana. Aqui só publicamos, como ConfigMaps,
+# os dashboards e a fonte de dados (Prometheus), que o Grafana carrega sozinho.
+grafana:
+  enabled: false
+  forceDeployDashboards: true
+  forceDeployDatasources: true
+
+# No cluster gerenciado (Magnum), etcd, scheduler, controller-manager e kube-proxy
+# não expõem métricas fora dos nós mestres. Desligados para não gerar alertas falsos.
+kubeEtcd:
+  enabled: false
+kubeScheduler:
+  enabled: false
+kubeControllerManager:
+  enabled: false
+kubeProxy:
+  enabled: false
+
+prometheus:
+  prometheusSpec:
+    # Por quanto tempo as métricas ficam guardadas
+    retention: 10d
+    # Coleta ServiceMonitors, PodMonitors e regras de qualquer namespace,
+    # não só os criados por este chart (ex.: Traefik, Argo CD, aplicações)
+    serviceMonitorSelectorNilUsesHelmValues: false
+    podMonitorSelectorNilUsesHelmValues: false
+    ruleSelectorNilUsesHelmValues: false

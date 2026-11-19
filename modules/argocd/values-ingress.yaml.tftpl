@@ -1,0 +1,15 @@
+# Acesso por domínio pelo Traefik. O Traefik termina o TLS e encaminha em HTTP.
+global:
+  domain: ${host}
+
+configs:
+  params:
+    server.insecure: true
+
+server:
+  ingress:
+    enabled: true
+    ingressClassName: ${ingress_class}
+    annotations:
+      traefik.ingress.kubernetes.io/router.entrypoints: websecure
+      traefik.ingress.kubernetes.io/router.tls: "true"

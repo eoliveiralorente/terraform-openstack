@@ -1,0 +1,13 @@
+# Disco persistente do Prometheus (Cinder). Usado só quando storage_enabled = true.
+prometheus:
+  prometheusSpec:
+    storageSpec:
+      volumeClaimTemplate:
+        spec:
+%{ if storage_class != "" ~}
+          storageClassName: ${storage_class}
+%{ endif ~}
+          accessModes: ["ReadWriteOnce"]
+          resources:
+            requests:
+              storage: ${storage_size}

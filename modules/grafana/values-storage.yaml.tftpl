@@ -1,0 +1,7 @@
+# Disco persistente do Grafana (usuários, preferências, dashboards criados à mão).
+persistence:
+  enabled: true
+%{ if storage_class != "" ~}
+  storageClassName: ${storage_class}
+%{ endif ~}
+  size: ${storage_size}

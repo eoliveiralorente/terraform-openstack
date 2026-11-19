@@ -1,0 +1,9 @@
+# Acesso por domínio pelo Traefik (HTTPS). Usado só quando host é preenchido.
+ingress:
+  enabled: true
+  ingressClassName: ${ingress_class}
+  annotations:
+    traefik.ingress.kubernetes.io/router.entrypoints: websecure
+    traefik.ingress.kubernetes.io/router.tls: "true"
+  hosts:
+    - ${host}
